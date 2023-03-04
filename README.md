@@ -7,58 +7,60 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Task Management Application
+This is a simple task management application built with Laravel.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Dependencies
+To run this application, you will need to have the following installed on your computer:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. PHP 7.3 or higher
+2. Composer
+3. MySQL or MariaDB
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Installation
+To run this application, follow these steps:
 
-## Learning Laravel
+1. Clone this repository onto your local machine: git clone https://github.com/SameeraGurusinghe/task-management.git
+2. Navigate into the project directory: cd task-management
+3. Install the project dependencies: composer install
+4. Create a new MySQL database for the application
+5. Copy the .env.example file and rename it to .env: cp .env.example .env
+6. Update the .env file with your database credentials and other settings as needed
+7. Generate a new application key: php artisan key:generate
+8. Run the database migrations to create the necessary tables: php artisan migrate
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    Important: I have use email service as mailtrap free service for testing. Please use your own e-mail configuration or create an account in Mailtrap.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    To set up Mailtrap in your Laravel application, you can follow these steps:
 
-## Laravel Sponsors
+    Sign up for a free account on Mailtrap.io.
+    Once you're logged in, create a new Inbox.
+    In your Laravel application, open the .env file and set the MAIL_MAILER value to smtp.
+    Set the MAIL_HOST value to smtp.mailtrap.io.
+    Set the MAIL_PORT value to 2525.
+    Set the MAIL_USERNAME and MAIL_PASSWORD values to the SMTP credentials provided by Mailtrap (these can be found in the Mailtrap Inbox settings).
+    Set the MAIL_ENCRYPTION value to tls.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    Here is an example .env file with the Mailtrap configuration:
+    MAIL_MAILER=smtp
+    MAIL_HOST=smtp.mailtrap.io
+    MAIL_PORT=2525
+    MAIL_USERNAME=your-username
+    MAIL_PASSWORD=your-password
+    MAIL_ENCRYPTION=tls
 
-### Premium Partners
+9. Start the development server: php artisan serve
+10. Open your web browser and navigate to http://localhost:8000
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Configuration
+You can configure various settings in the .env file, such as the database settings, e-mail settings and more.
 
-## Contributing
+## Usage
+After successfully run this application you are redirect to the Login page. Create your account and sign in.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    To create a new task, click on the "New Task" button on the homepage.
+    To edit or delete an existing task, click on the "Edit" or "Delete" button next to the task on the homepage.
+    To mark a task as completed, click on the "Complete" button next to the task on the homepage.
+    To view completed tasks, click on the "Completed Tasks" button on the homepage.
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+That's all.
