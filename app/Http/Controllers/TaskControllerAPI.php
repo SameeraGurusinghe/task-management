@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use Carbon\Carbon;
 
 class TaskControllerAPI extends Controller
 {
@@ -19,6 +20,11 @@ class TaskControllerAPI extends Controller
         if ($request->has('due_date')) {
             $due_date = $request->input('due_date');
             $tasks = $tasks->where('due_date', $due_date);
+        }
+
+        if ($request->has('overdue')) {
+            $overdue = ($request->input('overdue') == 'true');
+            $tasks = $tasks->where('due_date', '<', Carbon::today());
         }
 
         return response()->json([
