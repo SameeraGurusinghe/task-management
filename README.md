@@ -26,21 +26,27 @@ To run this application, follow these steps:
 
     To set up Mailtrap in your Laravel application, you can follow these steps:
 
-    Sign up for a free account on Mailtrap.io.
-    Once you're logged in, create a new Inbox.
-    In your Laravel application, open the .env file and set the MAIL_MAILER value to smtp.
-    Set the MAIL_HOST value to smtp.mailtrap.io.
-    Set the MAIL_PORT value to 2525.
-    Set the MAIL_USERNAME and MAIL_PASSWORD values to the SMTP credentials provided by Mailtrap (these can be found in the Mailtrap Inbox settings).
-    Set the MAIL_ENCRYPTION value to tls.
+    - Sign up for a free account on Mailtrap.io.
+    - Once you're logged in, create a new Inbox.
+    - In your Laravel application, open the .env file and set the MAIL_MAILER value to smtp.
+    - Set the MAIL_HOST value to smtp.mailtrap.io.
+    - Set the MAIL_PORT value to 2525.
+    - Set the MAIL_USERNAME and MAIL_PASSWORD values to the SMTP credentials provided by Mailtrap (these can be found in the Mailtrap Inbox settings).
+    - Set the MAIL_ENCRYPTION value to tls.
 
     Here is an example .env file with the Mailtrap configuration:
-    'MAIL_MAILER=smtp
+
+    `MAIL_MAILER=smtp
+
     MAIL_HOST=smtp.mailtrap.io
+
     MAIL_PORT=2525
+
     MAIL_USERNAME=your-username
+
     MAIL_PASSWORD=your-password
-    MAIL_ENCRYPTION=tls'
+
+    MAIL_ENCRYPTION=tls`
 
 9. Start the development server: php artisan serve
 10. Open your web browser and navigate to http://localhost:8000
@@ -51,9 +57,9 @@ You can configure various settings in the .env file, such as the database settin
 ## Usage
 After successfully run this application you are redirect to the Login page. Create your account and sign in.
 
-    To create a new task, click on the "New Task" button on the homepage.
-    To edit or delete an existing task, click on the "Edit" or "Delete" button next to the task on the homepage.
-    To mark a task as completed, click on the "Complete" button next to the task on the homepage.
-    To view completed tasks, click on the "Completed Tasks" button on the homepage.
+- To create a new task, click on the "New Task" button on the homepage.
+- To edit or delete an existing task, click on the "Edit" or "Delete" button next to the task on the homepage.
+- To mark a task as completed, click on the "Complete" button next to the task on the homepage.
+- To view completed tasks, click on the "Completed Tasks" button on the homepage.
 
 That's all.
