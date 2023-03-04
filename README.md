@@ -35,12 +35,12 @@ To run this application, follow these steps:
     Set the MAIL_ENCRYPTION value to tls.
 
     Here is an example .env file with the Mailtrap configuration:
-    MAIL_MAILER=smtp
+    'MAIL_MAILER=smtp
     MAIL_HOST=smtp.mailtrap.io
     MAIL_PORT=2525
     MAIL_USERNAME=your-username
     MAIL_PASSWORD=your-password
-    MAIL_ENCRYPTION=tls
+    MAIL_ENCRYPTION=tls'
 
 9. Start the development server: php artisan serve
 10. Open your web browser and navigate to http://localhost:8000
