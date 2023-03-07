@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Mail;
 
 class TaskController extends Controller
 {
-
     public function __construct()
     {
         // Verify that the user is authenticated before allowing access to Application
@@ -23,12 +22,6 @@ class TaskController extends Controller
             return $response;
         });
     }
-
-    // public function show(Task $task)
-    // {
-    //     return view('tasks.show', compact('task'));
-    // }
-
 
     //Display all tasks or filtered by request parameters.
     public function index(Request $request)

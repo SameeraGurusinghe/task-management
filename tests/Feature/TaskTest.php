@@ -21,7 +21,6 @@ class TaskTest extends TestCase
         $response->assertStatus(200);
     }
 
-
     /** Check if the "/api/tasks" endpoint returns a 200 status code **/
 
     // public function testTasksEndpoint()
@@ -29,8 +28,6 @@ class TaskTest extends TestCase
     //     $response = $this->get('/api/tasks');
     //     $response->assertStatus(200);
     // }
-
-
 
     /** Check whether Task can create **/
     public function test_can_create_task()
@@ -47,8 +44,6 @@ class TaskTest extends TestCase
         $response->assertStatus(201);
         $this->assertDatabaseHas('tasks', $data);
     }
-
-
 
     /** Check whether Task can update **/
     // public function test_can_update_task()
@@ -73,8 +68,6 @@ class TaskTest extends TestCase
     //     $response->assertStatus(200);
     //     $this->assertDatabaseHas('tasks', $updatedData);
     // }
-
-
 
     /** Check whether Task can delete **/
     // public function test_can_delete_task()
