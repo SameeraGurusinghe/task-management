@@ -11,7 +11,9 @@
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('tasks.update', $task->id) }}">
+                        <!-- To prevent CSRF attacks and ensure that the form data is submitted securely -->
                         @csrf
+                        <!-- To update an existing resource on the server using a form submission -->
                         @method('PUT')
 
                         <div class="form-group row">

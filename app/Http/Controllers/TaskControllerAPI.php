@@ -8,6 +8,7 @@ use Carbon\Carbon;
 
 class TaskControllerAPI extends Controller
 {
+    // Returns a JSON response containing all tasks filtered by completed, due date or overdue query parameters.
     public function index(Request $request)
     {
         $tasks = Task::all();
@@ -32,6 +33,7 @@ class TaskControllerAPI extends Controller
         ]);
     }
 
+    // Returns a JSON response containing the task with the specified ID
     public function show($id)
     {
         $task = Task::find($id);
@@ -47,6 +49,7 @@ class TaskControllerAPI extends Controller
         ]);
     }
 
+    // Creates a new task based on the request data and returns a JSON response with the created task
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -63,6 +66,7 @@ class TaskControllerAPI extends Controller
         ], 201);
     }
 
+    // Updates the task with the specified ID with the request data and returns a JSON response with the updated task
     public function update(Request $request, $id)
     {
         $task = Task::find($id);
@@ -87,6 +91,7 @@ class TaskControllerAPI extends Controller
         ]);
     }
 
+    // Deletes the task with the specified ID
     public function destroy($id)
     {
         $task = Task::find($id);

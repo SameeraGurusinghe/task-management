@@ -11,6 +11,7 @@
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('tasks.store') }}">
+                        <!-- To prevent CSRF attacks and ensure that the form data is submitted securely -->
                         @csrf
 
                         <div class="form-group row">

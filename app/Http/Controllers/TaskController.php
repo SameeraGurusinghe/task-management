@@ -13,7 +13,10 @@ class TaskController extends Controller
 
     public function __construct()
     {
+        // Verify that the user is authenticated before allowing access to Application
         $this->middleware('auth');
+
+        // Prevent the page from being cached to protect sensitive information
         $this->middleware(function ($request, $next) {
             $response = $next($request);
             $response->headers->set('Cache-Control','nocache, no-store, max-age=0, must-revalidate');
@@ -26,13 +29,18 @@ class TaskController extends Controller
     //     return view('tasks.show', compact('task'));
     // }
 
+
+    //Display all tasks or filtered by request parameters.
     public function index(Request $request)
     {
         $tasks = Task::query();
+
+        // Set default values for filtering variables.
         $completed = null;
         $due_date = null;
         $overdue = null;
     
+        // Check request parameters and filtering tasks
         if ($request->has('completed')) {
             $completed = ($request->input('completed') == 'true');
             $tasks = $tasks->where('completed', $completed);
@@ -57,14 +65,16 @@ class TaskController extends Controller
         return view('tasks.index', compact('tasks', 'completed', 'due_date', 'overdue'));
     }
      
-    
+    // Create a new task
     public function create()
     {
         return view('tasks.create');
     }
     
+    // Store user inputed data into the database
     public function store(Request $request)
     {
+        // Input fields validation
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'description' => 'required',
@@ -78,6 +88,7 @@ class TaskController extends Controller
     
         $user = $request->user();
     
+        // Send an email to user when create a task
         Mail::send('emails.task_created', compact('task', 'user'), function ($message) use ($user) {
             $message->to($user->email)->subject('New Task Created');
         });
@@ -90,8 +101,10 @@ class TaskController extends Controller
         return view('tasks.edit', compact('task'));
     }
     
+    // Update selected task
     public function update(Request $request, Task $task)
     {
+        // Input fields validation
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'description' => 'required',
@@ -102,6 +115,7 @@ class TaskController extends Controller
     
         $task->update($validatedData);
     
+        // Send an email to user when user has update task.
         if ($task->completed) {
             $user = $request->user();
     
@@ -113,6 +127,7 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Task updated successfully.');
     }
     
+    // Delete a task
     public function destroy(Task $task)
     {
         $task->delete();

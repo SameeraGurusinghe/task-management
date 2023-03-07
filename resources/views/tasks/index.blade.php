@@ -14,6 +14,7 @@
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right">{{ __('Filter by completion') }}</label>
 
+                                <!-- When user selects a new option, as soon as the form will be submitted to the server and retrive data.  -->
                                 <div class="col-md-6">
                                     <select id="completed" name="completed" class="form-control" onchange="this.form.submit()">
                                         <option value="">Select</option>
@@ -53,6 +54,7 @@
                             </div>
                         </form>
 
+                        <!-- If there no any data to selected filter, following messages will display. -->
                         @if ($tasks->count() == 0 && $completed === null && $due_date === null)
                             <p>No tasks found.</p>
                         @elseif ($tasks->count() == 0 && ($completed !== null || $due_date !== null))
